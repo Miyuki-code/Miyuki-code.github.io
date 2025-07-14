@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr: rgba(35, 2, 58, 0.929);
+    --bg: rgba(78, 13, 228, 0.432);
+    --sidebar-bg: rgba(48, 1, 92, 0.443);
+    --hover-bg: rgba(47, 1, 68, 0.612);
+    --text-color: rgb(224, 224, 224);
+    --active-color: #fff;
+}
+
+body {
+
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+    z-index: 200;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    position: fixed;
+    background-color: #3f0058;
+    top: -4px;
+    left: 0;
+    backdrop-filter: none; 
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+}
+
+.menu-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 1rem;
+    margin-left: -1.4rem;
+}
+
+.menu {
+    margin-top: 0.8rem;
+    color: rgb(224, 224, 224);
+    width: 3rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 1.9rem;
+    padding: 0.3rem;
+}
+
+.menu:hover {
+    background-color: rgba(47, 1, 68, 0.612);
+    border-radius: 40%;
+}
+
+h2 {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 0rem;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+    position: relative; /* Asegura que el z-index funcione */
+    z-index: 1000;
+}
+
+.right a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+    position: relative; /* Asegura que el z-index funcione */
+    z-index: 1000;
+}
+
+.right a:hover {
+    background-color: blueviolet;
+}
+
+.right a .iconos {
+    font-size: 1.5rem;
+    color: rgb(224, 224, 224);
+    transition: color 0.2s ease;
+}
+
+.logo img {
+    display: block; /* Cambiado de flex a block para imágenes */
+    width: 40px;
+    cursor: pointer;
+    border-radius:30%;
+    box-shadow: 0 4px 8px rgba(83, 1, 137, 0.667);
+}
+
+.sidebar {
+    top: 40px; 
+    position:fixed;
+    width: 80px;
+    height: calc(140vh - 40px);
+    background-color: #3f0058;
+    transition: 0.5s; 
+    padding-left: 10px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.sidebar.menu-toggle{
+    width: 300px;
+}
+
+.sidebar ul {
+    position: relative;
+    height: 100%; /* Ocupa toda la altura del sidebar */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style: none;
+}
+
+.sidebar ul li.active{
+    background: var(--clr);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.sidebar ul li.active::before{
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 5px 5px 0 5px var(--clr);
+    background: transparent;
+}
+
+.sidebar ul li.active::after{
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 5px -5px 0 5px var(--clr);
+    background: transparent;
+}
+
+.sidebar ul li .logo {
+    margin-bottom: 60px;
+}
+
+.sidebar ul li.logo .icon{
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+}
+
+.sidebar ul li.logo .text {
+    margin-left: -5px;
+    font-size: 0.9em;
+    font-weight: 200;
+    color: rgb(255, 255, 255);
+}
+
+.sidebar ul li a {
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    text-decoration: none;  
+}
+
+.sidebar ul li a .icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    padding-left: 10px;
+    height: 70px;
+    font-size: 1.5rem;
+    color: rgb(224, 224, 224);
+    transition: 0.5s;
+}
+
+.sidebar ul li a .text {
+    position: relative;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: rgb(224, 224, 224);
+    padding-left: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.5s; /* Transición suave para el color */
+}
+
+.sidebar ul li.active a .icon{
+    color: #fff;
+}
+
+.sidebar ul li.active a .text{
+    color: var(--bg);
+}
+
+.sidebar ul li:hover a .icon,
+.sidebar ul li:hover a .text {
+    color: var(--bg);
+}
+
+
+.sidebar ul li:hover a {
+    background-color: rgba(47, 1, 68, 0.612);
+    border-radius: 35px;
+}
+
+/* Contenedor de notificaciones */
+.notification-container {
+    position: fixed;
+    top: 70px; /* Ajusta según la altura de tu header */
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    display: none; /* Oculto por defecto */
+    z-index: 1000;
+}
+
+/* Encabezado del contenedor */
+.notification-header {
+    background-color: #4d79ff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Botón de cerrar */
+.notification-header .close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.notification-header .close-btn:hover {
+    color: #ff4d4d;
+}
+
+/* Cuerpo del contenedor */
+.notification-body {
+    padding: 10px;
+}
+
+.notification-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notification-body ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+
+.notification-body ul li:last-child {
+    border-bottom: none;
+}
+
+.notification-body ul li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}

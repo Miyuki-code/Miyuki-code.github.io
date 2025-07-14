@@ -1,0 +1,77 @@
+/* Fondo del modal */
+.modal-content {
+    background-color: #f9f9f9; /* Fondo claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    border: none; /* Sin bordes */
+    display: flex;
+    justify-content: center;
+
+}
+
+/* Título del modal */
+.modal-header {
+    background-color: #4d79ff; /* Fondo azul */
+    color: #fff; /* Texto blanco */
+    border-bottom: none; /* Sin borde inferior */
+    border-radius: 10px 10px 0 0; /* Bordes redondeados superiores */
+    padding: 15px;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Botón de cerrar */
+.modal-header .btn-close {
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 50%; /* Forma circular */
+    padding: 5px;
+    opacity: 1; /* Totalmente visible */
+}
+
+.modal-header .btn-close:hover {
+    background-color: #ff4d4d; /* Fondo rojo al pasar el mouse */
+}
+
+/* Cuerpo del modal */
+.modal-body {
+    padding: 20px;
+    font-size: 1rem;
+    color: #333; /* Texto oscuro */
+}
+
+/* Input del archivo */
+.modal-body .form-control {
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.modal-body .form-control:focus {
+    border-color: #4d79ff; /* Borde azul al enfocar */
+    box-shadow: 0 0 5px rgba(77, 121, 255, 0.5); /* Sombra azul */
+}
+
+/* Botón de importar */
+.modal-body .btn-primary {
+    background-color: #4d79ff; /* Azul */
+    border: none; /* Sin bordes */
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease;
+}
+
+.modal-body .btn-primary:hover {
+    background-color: #3a5bcc; /* Azul más oscuro al pasar el mouse */
+}
+
+/* Pie del modal */
+.modal-footer {
+    border-top: none; /* Sin borde superior */
+    padding: 15px;
+    justify-content: center; /* Centrar los botones */
+}

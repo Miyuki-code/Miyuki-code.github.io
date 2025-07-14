@@ -1,0 +1,657 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('../Stilos/PT_Sans/PTSans-Bold.ttf');
+  font-weight: bold;
+  font-style: bold;
+}
+
+body {
+    background-image: url('../imagen/parque.jpg');
+    background-size: 1300px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: scroll;
+}
+
+main.content {
+    align-items: center;
+    padding: 6rem;
+    background-color: #44037095; /* Fondo claro para diferenciar */
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 6rem auto;
+    text-align: center;
+}
+
+main.content h1 {
+    font-family: 'Lato';
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgb(255, 0, 115);
+    margin-left: 0; 
+    padding-top: 0; 
+}
+
+main.content h1 {
+    text-shadow: 2px 2px 4px rgb(255, 0, 115);
+}
+
+main.content h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+main.content h2 {
+    text-shadow: 1px 1px 2px rgb(255, 0, 166), -1px -1px 2px gray; /* Varias sombras */
+}
+
+main.content .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+main.content .CI {
+    font-size: 1.2rem;
+    color: #ebd8fc;
+    margin-bottom: -1rem;
+}
+
+main.content input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #aa00f9;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+main.content input[type="text"]:focus {
+    border-color: #ff00a6;
+}
+
+main.content .btn-inicio {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+main.content .btn-inicio button {
+    padding: 0.8rem 1.5rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #fff;
+    background: linear-gradient(to right, #370151, #00ff73);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+main.content .btn-inicio button:hover {
+    background: linear-gradient(to right, #00ff73, #370151);
+}
+
+main.content .btn-inicio button.salida {
+    background: linear-gradient(to right, #ff0000, #ff0044);
+}
+
+main.content .btn-inicio button.salida:hover {
+    background: linear-gradient(to right, #ff0044, #ff0000);
+}
+
+.hola {
+    position: fixed; 
+    z-index: 1000;
+    font-size: 1.5rem; 
+    color: #ffffff; 
+    text-shadow: 2px 2px 4px rgb(255, 0, 115);
+    margin-left: 5rem;
+    top: 10px;
+    pointer-events: none;
+    font-family: 'Lato';
+}
+
+/* Toast */
+.contenedor-toast {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    z-index: 9999;
+
+}
+
+.toast {
+    background: #ccc;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    overflow: hidden;
+    animation-name: apertura;
+    animation-duration: 200ms;
+    animation-timing-function: ease-out;
+    position: relative;
+}
+
+.toast.exito{
+    background: #4caf50;
+}
+
+.toast.error{
+    background: #f44336;
+}
+
+.toast.info {
+    background: #2196F3;
+}
+.toast.alert{
+    background: #ff9800;
+}
+
+.toast .contenido {
+    display: grid;
+    grid-template-columns: 30px auto;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+}
+
+.toast .titulo {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.toast .descripcion {
+    font-size: 14px;
+    color: #fff;
+}
+
+.toast .btn-cerrar {
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    padding: 0px 10px;
+    border-radius: 0 10px 10px 0;
+    transition: .3s ease all;
+}
+
+.toast .btn-cerrar:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.toast .btn-cerrar .icono {
+    width: 20px;
+    height: 20px;
+    color: #fff;
+}
+
+.toast .btn-cerrar .icono {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+
+.toast .icono .i {
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+@keyframes apertura {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.toast.cerrando {
+    animation-name: cierre;
+    animation-duration: 200ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cierre {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(calc(100% + 40px));
+    }
+}
+
+.toast.autoCierre::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    animation-name: autoCierre;
+    animation-duration: 5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes autoCierre {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+
+/* Media Queries */
+
+/* Teléfonos */
+@media (max-width: 768px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-size: cover;
+        background-position: center;
+    }
+
+    main.content {
+        padding: 2rem;
+        border-radius: 20px;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    main.content h1 {
+        font-size: 1.5rem;
+    }
+
+    main.content h2 {
+        font-size: 1rem;
+    }
+
+    main.content input[type="text"] {
+        width: 100%;
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    main.content .btn-inicio {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    main.content .btn-inicio button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+
+    main.content .CI {
+        font-size: 1rem;
+    }
+
+    .hola {
+        display: none;
+    }
+}
+
+/* Computadoras grandes */
+@media (min-width: 1300px) {
+    body {
+        min-height: 100vh;
+        margin: 0;
+        background-size: cover;
+        background-position: center;
+    }
+
+    main.content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 6rem;
+        max-width: 1000px;
+        width: 80%;
+    }
+
+    main.content h1 {
+        font-size: 2.5rem;
+    }
+
+    main.content h2 {
+        font-size: 1.5rem;
+    }
+
+    main.content input[type="text"] {
+        max-width: 700px;
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+
+    main.content .btn-inicio {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    main.content .btn-inicio button {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+    }
+
+    main.content .CI {
+        font-size: 1.5rem;
+    }
+
+    .hola {
+        font-size: 1.5rem;
+    }
+}
+
+/* Laptops */
+@media (min-width: 769px) and (max-width: 1199px) {
+    body {
+        min-height: 100vh;
+        margin: 0;
+        background-size: cover;
+        background-position: center;
+    }
+
+    main.content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 4rem;
+        max-width: 800px;
+        width: 85%;
+    }
+
+    main.content h1 {
+        font-size: 2rem;
+    }
+
+    main.content h2 {
+        font-size: 1.2rem;
+    }
+
+    main.content input[type="text"] {
+        max-width: 600px;
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    main.content .btn-inicio {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    main.content .btn-inicio button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    main.content .CI {
+        font-size: 1.2rem;
+    }
+
+    .hola {
+        font-size: 1.5rem;
+    }
+}
+
+/*Contenedor settings*/
+.container-settings {
+    position: relative;
+    top: 15%;
+    width: 900px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(#4b006e7d, #137dff6c);
+    border-radius: 30px;
+    gap: 20px;
+    margin: auto;
+}
+
+.nav-settings {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.nav-settings .titulo-settings {
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+    background: #29003b;
+    width: 100%;
+    padding: 20px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+
+}
+
+.nav-settings .titulo-settings h2{
+    font-family: 'Lato';
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(255, 0, 115, 0.628);
+
+}
+
+.nav-settings .nav {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-settings .nav ul {
+    flex-direction: column;
+    display: flex;
+    width: 19%;
+    height: 90.4%;
+    padding: 0;
+    margin-top: 0px;
+    border-radius: 0px 0 0px 30px;
+    background-color: #260037;
+    gap: 10px;
+}
+
+.nav-settings .nav ul li {
+    list-style: none;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+    background: rgba(68, 0, 113, 0.696);
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    transition: 0.5s;
+}
+
+.nav-settings .nav ul li:hover {
+    background: #9400d9;
+}
+
+.nav-settings .nav ul li.active {
+    background: #650094;
+}
+
+.nav-settings .nav-content{
+    display: flex;
+    padding: 20px;
+    overflow-y: auto;
+    color: #ffffff;
+}
+
+.nav-settings .nav-content h3{
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.import{
+    display: flex;
+    overflow: scroll;
+
+}
+
+.export{
+    display: none;
+}
+
+.export h3{
+    font-size: 1.5rem;
+    color: #ffffff;
+    position: absolute;
+    top: 10%;
+    left: 28%;
+}
+
+.export p{
+    font-size: 1.2rem;
+    color: #ffffff;
+    position: absolute;
+    top: 27%;
+    left: 3%;
+}
+
+.export .btn {
+    background: #2196F3;
+    width: 400px;
+    height: 60px;
+    position: absolute;
+    left: 17%;
+    box-shadow: #3901549a 0px 10px 20px;
+    border-radius: 10px;
+    transition: 0.5s ease;
+    font-size: 20px;
+}
+
+.export .btn:hover{
+    background: #167ccf;
+}
+
+.export .btn .icon, .import .modal-body form .btn .icon{
+    color: #ffffff;
+    font-size: 2rem;
+    position: absolute;
+    top: 18%;
+    left: 5%;
+
+}
+
+.import, .export{
+    flex-direction: column;
+    width: 600px;
+    height: 650px;
+    background: #4403707b;
+    text-align: center;
+    justify-content: center;
+    border-radius: 50px;
+    position: absolute;
+    top: 13%;
+    left: 25%;
+    box-shadow: #3901549a 0px 10px 20px;
+    overflow: hidden;
+}
+
+.mb-3 label {
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.mb-3 input[type="file"] {
+    font-size: 1rem;
+    border-radius: 10px;
+    border: #efcbff 1px solid;
+    color: #ffffffa7;
+}
+
+.mb-3 input[type="file"]::file-selector-button {
+    background: #4c006e;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.mb-3 input[type="file"]::file-selector-button:hover {
+    background: #4c006e;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.nav button {
+    background: linear-gradient(to right, #4c006e, #137dffc4);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.nav button:hover {
+    background: #ae00ff;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+thead {
+    background: #c763f5;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+td {
+    background: #4403707b;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.text {
+    font-size: 1.2rem;
+    color: #ffffff;
+}

@@ -1,0 +1,314 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('../Stilos/PT_Sans/PTSans-Bold.ttf');
+  font-weight: bold;
+  font-style: bold;
+}
+
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: scroll;
+    background-image: url('../imagen/result.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container3 {
+    width: 50%;            
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 20px;
+    background-color: rgba(59, 0, 86, 0.687);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+.container3 h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff; /* Morado oscuro */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(255, 0, 191, 0.5);
+    font-family: 'Lato';
+}
+
+.container4 {
+    background-color: rgba(59, 0, 86, 0.687);
+    padding: 10px;
+    border-radius: 30px;
+    width: 1100px;
+    max-width: 1000px;
+    margin: 80px auto;
+}
+
+form.from-rigth {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+form.from-rigth label {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+form.from-rigth select {
+    padding: 10px;
+    border: 1px solid #90caf9; /* Azul claro */
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+form.from-rigth select:focus {
+    border-color: #1565c0; /* Azul oscuro */
+    outline: none;
+}
+
+/* Botones de acciones */
+button.btn {
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-warning {
+    background-color: #ff9800; /* Naranja */
+}
+
+button.btn-warning:hover {
+    background-color: #e65100; /* Naranja oscuro */
+}
+
+button.btn-danger {
+    background-color: #e53935; /* Rojo */
+}
+
+button.btn-danger:hover {
+    background-color: #b71c1c; /* Rojo oscuro */
+}
+
+button.btn-primary {
+    background-color: #1565c0; /* Azul */
+}
+
+button.btn-primary:hover {
+    background-color: #0d47a1; /* Azul oscuro */
+}
+
+/* Modal */
+.modal-header {
+    background-color: #4a148c; /* Morado oscuro */
+    color: #fff;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+}
+
+.modal-body label {
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-footer button {
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-footer button.btn-secondary {
+    background-color: #757575; /* Gris */
+}
+
+.modal-footer button.btn-secondary:hover {
+    background-color: #424242; /* Gris oscuro */
+}
+
+.modal-footer button.btn-primary {
+    background-color: #1565c0; /* Azul */
+}
+
+.modal-footer button.btn-primary:hover {
+    background-color: #0d47a1; /* Azul oscuro */
+}
+
+/* Mensaje de "No se encontraron registros" */
+table tbody tr td.text-center {
+    font-size: 1.2rem;
+    color: #797979; /* Gris */
+    font-style: italic;
+}
+
+.hola {
+    position: fixed; 
+    z-index: 1000;
+    font-size: 1.5rem; 
+    color: #ffffff; 
+    text-shadow: 2px 2px 4px rgb(255, 0, 115);
+    margin-left: 5rem;
+    top: 10px;
+    font-family: 'Lato';
+    pointer-events: none;
+}
+
+/* Toast */
+.contenedor-toast {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    z-index: 9999;
+}
+
+.toast {
+    background: #ccc;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    overflow: hidden;
+    animation-name: apertura;
+    animation-duration: 200ms;
+    animation-timing-function: ease-out;
+    position: relative;
+
+}
+
+.toast.exito{
+    background: #4caf50;
+}
+
+.toast.error{
+    background: #f44336;
+}
+
+.toast.info {
+    background: #2196F3;
+}
+.toast.alert{
+    background: #ff9800;
+}
+
+.toast .contenido {
+    display: grid;
+    grid-template-columns: 30px auto;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+}
+
+.toast .titulo {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.toast .descripcion {
+    font-size: 14px;
+    color: #fff;
+}
+
+.toast .btn-cerrar {
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    padding: 0px 10px;
+    border-radius: 0 10px 10px 0;
+    transition: .3s ease all;
+}
+
+.toast .btn-cerrar:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.toast .btn-cerrar .icono {
+    width: 20px;
+    height: 20px;
+    color: #fff;
+}
+
+.toast .btn-cerrar .icono {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+
+.toast .icono .i {
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+@keyframes apertura {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.toast.cerrando {
+    animation-name: cierre;
+    animation-duration: 200ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cierre {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(calc(100% + 40px));
+    }
+}
+
+.toast.autoCierre::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    animation-name: autoCierre;
+    animation-duration: 5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes autoCierre {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
